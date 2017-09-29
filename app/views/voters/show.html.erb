@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @voter.name %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @voter.cpf %>
+</p>
+
+<p>
+  <strong>Date of birth:</strong>
+  <%= @voter.date_of_birth %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @voter.gender %>
+</p>
+
+<%= link_to 'Edit', edit_voter_path(@voter) %> |
+<%= link_to 'Back', voters_path %>
