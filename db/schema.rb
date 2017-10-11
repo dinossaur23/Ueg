@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926212543) do
+ActiveRecord::Schema.define(version: 20171005132220) do
 
   create_table "candidates", force: :cascade do |t|
     t.string "name"
@@ -20,11 +20,19 @@ ActiveRecord::Schema.define(version: 20170926212543) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position_id"
+    t.integer "uev_id"
     t.index ["position_id"], name: "index_candidates_on_position_id"
+    t.index ["uev_id"], name: "index_candidates_on_uev_id"
   end
 
   create_table "positions", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "uevs", force: :cascade do |t|
+    t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,6 +44,8 @@ ActiveRecord::Schema.define(version: 20170926212543) do
     t.string "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "uev_id"
+    t.index ["uev_id"], name: "index_voters_on_uev_id"
   end
 
 end

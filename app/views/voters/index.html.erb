@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Uev</th>
       <th>Name</th>
       <th>Cpf</th>
       <th>Date of birth</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @voters.each do |voter| %>
       <tr>
+        <td><%= voter.uev.token %></td>
         <td><%= voter.name %></td>
         <td><%= voter.cpf %></td>
         <td><%= voter.date_of_birth %></td>

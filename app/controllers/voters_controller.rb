@@ -62,7 +62,7 @@ class VotersController < ApplicationController
   end
 
   def to_json
-    render json: Voter.all.to_json(only: [ :name, :cpf ])
+    render json: Voter.joins(:uev).where('uevs.token = ?', params[:id]).to_json(only: [ :name, :cpf ])
   end
 
   private
@@ -73,6 +73,6 @@ class VotersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def voter_params
-      params.require(:voter).permit(:name, :cpf, :date_of_birth, :gender)
+      params.require(:voter).permit(:uev_id, :name, :cpf, :date_of_birth, :gender)
     end
 end

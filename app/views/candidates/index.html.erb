@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Uev</th>
       <th>Position</th>
       <th>Name</th>
       <th>Nickname</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @candidates.each do |candidate| %>
       <tr>
+        <td><%= candidate.uev.token %></td>
         <td><%= candidate.position.name %></td>
         <td><%= candidate.name %></td>
         <td><%= candidate.nickname %></td>

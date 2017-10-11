@@ -62,7 +62,7 @@ class CandidatesController < ApplicationController
   end
 
   def to_json
-    render json: Candidate.all.to_json(only: [ :name, :nickname, :number, :images ], include: { position: { only: :name }})
+    render json: Candidate.joins(:uev).where('uevs.token = ?', params[:id]).to_json(only: [ :name, :nickname, :number, :images ], include: { position: { only: :name }})
   end
 
   private
@@ -73,6 +73,6 @@ class CandidatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidate_params
-      params.require(:candidate).permit(:position_id, :name, :nickname, :number, :image)
+      params.require(:candidate).permit(:uev_id, :position_id, :name, :nickname, :number, :image)
     end
 end
