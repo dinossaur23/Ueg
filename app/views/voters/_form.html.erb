@@ -11,32 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :uev %>
-    <%= collection_select(:voter, :uev_id, Uev.all, :id, :token) %>
-  </div>
+  <div class="row">
+    <div class="col s12 m8 l6">
+      <div class="field">
+        <%= form.label :uev %>
+        <%= collection_select(:voter, :uev_id, Uev.all, :id, :token, { prompt: false }, { class: 'browser-default' }) %>
+      </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :voter_name %>
-  </div>
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, id: :voter_name %>
+      </div>
 
-  <div class="field">
-    <%= form.label :cpf %>
-    <%= form.text_field :cpf, id: :voter_cpf %>
-  </div>
+      <div class="field">
+        <%= form.label :cpf %>
+        <%= form.text_field :cpf, id: :voter_cpf %>
+      </div>
 
-  <div class="field">
-    <%= form.label :date_of_birth %>
-    <%= form.date_select :date_of_birth, id: :voter_date_of_birth %>
-  </div>
+      <div class="field">
+        <%= form.label :date_of_birth %>
+        <%= form.date_select(:date_of_birth, id: :voter_date_of_birth) %><input type = "date" class = "datepicker" />
+      </div>
 
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.text_field :gender, id: :voter_gender %>
-  </div>
+      <div class="field">
+        <%= form.label :gender %>
+        <%= form.text_field :gender, id: :voter_gender %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
+      <br><div class="actions waves-effect waves-light btn-large">
+        <%= form.submit %>
+      </div>
+    </div>
   </div>
 <% end %>

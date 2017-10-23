@@ -1,24 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @candidate.name %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Uev</th>
+      <th>Position</th>
+      <th>Name</th>
+      <th>Nickname</th>
+      <th>Number</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Nickname:</strong>
-  <%= @candidate.nickname %>
-</p>
-
-<p>
-  <strong>Number:</strong>
-  <%= @candidate.number %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @candidate.image %>
-</p>
+  <tbody>
+      <tr>
+        <td><%= @candidate.uev.token %></td>
+        <td><%= @candidate.position.name %></td>
+        <td><%= @candidate.name %></td>
+        <td><%= @candidate.nickname %></td>
+        <td><%= @candidate.number %></td>
+        <td><%= image_tag(@candidate.image)%></td>
+      </tr>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_candidate_path(@candidate) %> |
 <%= link_to 'Back', candidates_path %>

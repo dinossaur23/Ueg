@@ -1,3 +1,14 @@
 // Place all the styles related to the Candidates controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.center-cols > .col {
+  float:none; /* disable the float */
+  display: inline-block; /* make blocks inline-block */
+  text-align: initial; /* restore text-align to default */
+}
+.pre {
+  background-color: #eee;
+}
+.nav {
+  background-color: #009688;
+}
