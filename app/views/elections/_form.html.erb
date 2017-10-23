@@ -1,0 +1,32 @@
+<%= form_with(model: election, local: true) do |form| %>
+  <% if election.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(election.errors.count, "error") %> prohibited this election from being saved:</h2>
+
+      <ul>
+      <% election.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_field :code, id: :election_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :init %>
+    <%= form.datetime_select :init, id: :election_init %>
+  </div>
+
+  <div class="field">
+    <%= form.label :finish %>
+    <%= form.datetime_select :finish, id: :election_finish %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

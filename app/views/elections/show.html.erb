@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @election.code %>
+</p>
+
+<p>
+  <strong>Init:</strong>
+  <%= @election.init %>
+</p>
+
+<p>
+  <strong>Finish:</strong>
+  <%= @election.finish %>
+</p>
+
+<%= link_to 'Edit', edit_election_path(@election) %> |
+<%= link_to 'Back', elections_path %>
