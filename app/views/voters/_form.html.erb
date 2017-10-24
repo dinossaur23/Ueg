@@ -30,7 +30,7 @@
 
       <div class="field">
         <%= form.label :date_of_birth %>
-        <%= form.date_select(:date_of_birth, id: :voter_date_of_birth) %><input type = "date" class = "datepicker" />
+        <%= form.datetime_select :date_of_birth, { id: :voter_date_of_birth, order: [:day, :month, :year] }, { class: 'browser-default' } %>
       </div>
 
       <div class="field">

@@ -61,6 +61,12 @@ class ElectionsController < ApplicationController
     end
   end
 
+  def to_json
+    election = Election.where('elections.code = ?', params[:id])
+    render json: election.to_json(only: [], methods: [ :start_at, :finish_at ])
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_election

@@ -11,22 +11,26 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :code %>
-    <%= form.text_field :code, id: :election_code %>
-  </div>
+  <div class="row">
+    <div class="col s12 m8 l6">
+      <div class="field">
+        <%= form.label :code %>
+        <%= form.text_field :code, id: :election_code %>
+      </div>
 
-  <div class="field">
-    <%= form.label :init %>
-    <%= form.datetime_select :init, id: :election_init %>
-  </div>
+      <div class="field">
+        <%= form.label :init %><br>
+        <%= form.datetime_select :init, { id: :election_init, order: [:day, :month, :year] }, { class: 'browser-default' } %>
+      </div>
 
-  <div class="field">
-    <%= form.label :finish %>
-    <%= form.datetime_select :finish, id: :election_finish %>
-  </div>
+      <div class="field">
+        <%= form.label :finish %><br>
+        <%= form.datetime_select :finish, { id: :election_finish, order: [:day, :month, :year] }, { class: 'browser-default' } %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
+      <br><div class="actions waves-effect waves-light btn-large">
+        <%= form.submit %>
+      </div>
+    </div>
   </div>
 <% end %>
