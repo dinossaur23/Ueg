@@ -1,6 +1,9 @@
 class ElectionsController < ApplicationController
   before_action :set_election, only: [:show, :edit, :update, :destroy]
 
+  def home
+  end
+
   # GET /elections
   # GET /elections.json
   def index

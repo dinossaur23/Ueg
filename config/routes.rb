@@ -14,4 +14,6 @@ Rails.application.routes.draw do
     get ':id/apurations', to: 'apurations#index'
     get ':id/apurations/count', to: 'apurations#count'
   end
+
+  root to: 'elections#home'
 end

@@ -9,14 +9,17 @@ class ApurationsController < ApplicationController
   #   @json = JSON.parse(response)
   # end
 
+  # def index
+  #   response = ''
+  #   uev = Uev.where('uevs.token = ?', params[:id]).to_a
+  #   server = uev.first.uev_server
+  #   open(server) do |http|
+  #     response = http.read
+  #   end
+  #   @json = JSON.parse(response)
+  # end
+
   def index
-    response = ''
-    uev = Uev.where('uevs.token = ?', params[:id]).to_a
-    server = uev.first.uev_server
-    open(server) do |http|
-      response = http.read
-    end
-    @json = JSON.parse(response)
   end
 
 
