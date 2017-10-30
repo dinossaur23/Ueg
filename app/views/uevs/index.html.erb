@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Token</th>
+      <th>Server</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
     <% @uevs.each do |uev| %>
       <tr>
         <td><%= uev.token %></td>
+        <td><%= uev.uev_server %></td>
         <td><%= link_to 'Show', uev %></td>
         <td><%= link_to 'Edit', edit_uev_path(uev) %></td>
         <td><%= link_to 'Destroy', uev, method: :delete, data: { confirm: 'Are you sure?' } %></td>

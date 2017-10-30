@@ -4,6 +4,9 @@ class ElectionsController < ApplicationController
   def home
   end
 
+  def result
+  end
+
   # GET /elections
   # GET /elections.json
   def index

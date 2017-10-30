@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
-<span style= "text-align: center"><p> <%= @json.first['votes'] %></p></span>
-
+<span style= "text-align: center">
+  <h1>Accounting Votes</h1>
+  <p>To count votes is necessary to have registered the server of each Uev and this server must be working, otherwise nothing will be counted.</p>
+</span>
+<% Uev.all.each do |uev| %>
+<br><div class="row center">
+  <p>Uev <%=uev.token%></p>
+  <a href="api/<%=uev.token%>/apurations/count" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">submit<i class="material-icons right">send</i></a>
+</div>
+<% end %>
 </html>

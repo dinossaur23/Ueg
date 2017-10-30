@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<span style= "text-align: center">
+  <h1>Elections result</h1>
+  <p></p>
+</span>
+<% Election.all.each do |election| %>
+<br><div>
+  <h4>Election <%=election.code%></h4>
+  <p>Total: <%= Vote.where('votes.election_id == ?', election.id).count %></p>
+</div>
+<% end %>
+</html>

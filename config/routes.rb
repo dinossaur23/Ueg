@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :uevs
   resources :apurations
 
+  get 'result', to: 'elections#result'
+
   scope '/api' do
     get ':id/candidates', to: 'candidates#to_json'
     get ':id/voters', to: 'voters#to_json'
