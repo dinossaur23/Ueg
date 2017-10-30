@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20171027153807) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "candidates", force: :cascade do |t|
     t.string "name"
     t.string "nickname"
@@ -19,8 +22,8 @@ ActiveRecord::Schema.define(version: 20171027153807) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "position_id"
-    t.integer "uev_id"
+    t.bigint "position_id"
+    t.bigint "uev_id"
     t.index ["position_id"], name: "index_candidates_on_position_id"
     t.index ["uev_id"], name: "index_candidates_on_uev_id"
   end
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 20171027153807) do
     t.datetime "finish"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "votes_id"
+    t.bigint "votes_id"
     t.index ["votes_id"], name: "index_elections_on_votes_id"
   end
 
@@ -55,7 +58,7 @@ ActiveRecord::Schema.define(version: 20171027153807) do
     t.string "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "uev_id"
+    t.bigint "uev_id"
     t.index ["uev_id"], name: "index_voters_on_uev_id"
   end
 
@@ -63,14 +66,22 @@ ActiveRecord::Schema.define(version: 20171027153807) do
     t.datetime "timestamp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "uev_id"
-    t.integer "voter_id"
-    t.integer "candidate_id"
-    t.integer "election_id"
+    t.bigint "uev_id"
+    t.bigint "voter_id"
+    t.bigint "candidate_id"
+    t.bigint "election_id"
     t.index ["candidate_id"], name: "index_votes_on_candidate_id"
     t.index ["election_id"], name: "index_votes_on_election_id"
     t.index ["uev_id"], name: "index_votes_on_uev_id"
     t.index ["voter_id"], name: "index_votes_on_voter_id"
   end
 
+  add_foreign_key "candidates", "positions"
+  add_foreign_key "candidates", "uevs"
+  add_foreign_key "elections", "votes", column: "votes_id"
+  add_foreign_key "voters", "uevs"
+  add_foreign_key "votes", "candidates"
+  add_foreign_key "votes", "elections"
+  add_foreign_key "votes", "uevs"
+  add_foreign_key "votes", "voters"
 end
