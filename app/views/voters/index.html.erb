@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Election</th>
       <th>Uev</th>
       <th>Name</th>
       <th>Cpf</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @voters.each do |voter| %>
       <tr>
+        <td><%= voter.election.code %></td>
         <td><%= voter.uev.token %></td>
         <td><%= voter.name %></td>
         <td><%= voter.cpf %></td>

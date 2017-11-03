@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get 'result', to: 'elections#result'
 
   scope '/api' do
-    get ':id/candidates', to: 'candidates#to_json'
-    get ':id/voters', to: 'voters#to_json'
+    get ':id/:election/candidates', to: 'candidates#to_json'
+    get ':id/:election/voters', to: 'voters#to_json'
     get ':id/elections', to: 'elections#to_json'
     get ':id/apurations', to: 'apurations#index'
     get ':id/apurations/count', to: 'apurations#count'

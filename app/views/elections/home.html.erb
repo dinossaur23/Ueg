@@ -46,13 +46,13 @@
             <h2 class="center brown-text"><i class="material-icons">group</i></h2>
             <h5 class="center">Uevs connection</h5>
 
-            <p class="light">To connect to the Ueg system, Uev needs to have the identification code. All registration information will be available on the following routes. Change [election_code] for the election code and [uev_code] for your Uev code.</p>
+            <p class="light">To connect to the Ueg system, Uev needs to have the identification code. All registration information will be available on the following routes. Change [uev] for your Uev token and [election] for the election code.</p>
             <p class="light">Get elections:</p>
-            <p style="background-color: rgba(27,31,35,0.05);"><code>/api/[uev_code]/elections</code>
+            <p style="background-color: rgba(27,31,35,0.05);"><code>/api/[uev]/elections</code>
             <p class="light">Get candidates:</p>
-            <p style="background-color: rgba(27,31,35,0.05);"><code>/api/[uev_code]/candidates</code>
+            <p style="background-color: rgba(27,31,35,0.05);"><code>/api/[uev]/[election]/candidates</code>
             <p class="light">Get voters:</p>
-            <p style="background-color: rgba(27,31,35,0.05);"><code>/api/[uev_code]/voters</code>
+            <p style="background-color: rgba(27,31,35,0.05);"><code>/api/[uev]/[election]/voters</code>
           </div>
         </div>
 
@@ -86,9 +86,10 @@
       <div class="row">
         <div class="col s12 m6">
           <div class="left-align light">
-            <p>Get election</p>
+            <p>Get elections</p>
             <pre style="background-color: rgba(27,31,35,0.05);"><code>[
   {
+    "code": "2017",
     "start_at": "30/10/2017 05:00:00",
     "finish_at": "30/10/2017 18:30:00"
   }
