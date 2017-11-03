@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171103165743) do
+ActiveRecord::Schema.define(version: 20171103170927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20171103165743) do
     t.datetime "updated_at", null: false
     t.bigint "position_id"
     t.bigint "uev_id"
+    t.bigint "election_id"
+    t.index ["election_id"], name: "index_candidates_on_election_id"
     t.index ["position_id"], name: "index_candidates_on_position_id"
     t.index ["uev_id"], name: "index_candidates_on_uev_id"
   end
@@ -57,6 +59,8 @@ ActiveRecord::Schema.define(version: 20171103165743) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "uev_id"
+    t.bigint "election_id"
+    t.index ["election_id"], name: "index_voters_on_election_id"
     t.index ["uev_id"], name: "index_voters_on_uev_id"
   end
 
@@ -74,8 +78,10 @@ ActiveRecord::Schema.define(version: 20171103165743) do
     t.index ["voter_id"], name: "index_votes_on_voter_id"
   end
 
+  add_foreign_key "candidates", "elections"
   add_foreign_key "candidates", "positions"
   add_foreign_key "candidates", "uevs"
+  add_foreign_key "voters", "elections"
   add_foreign_key "voters", "uevs"
   add_foreign_key "votes", "candidates"
   add_foreign_key "votes", "elections"
