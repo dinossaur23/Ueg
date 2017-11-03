@@ -68,8 +68,13 @@ class ElectionsController < ApplicationController
   end
 
   def to_json
-    election = Election.where('elections.code = ?', params[:id])
-    render json: election.to_json(only: [], methods: [ :start_at, :finish_at ])
+    uev = Uev.where('uevs.token = ?', params[:id])
+    if uev.present?
+      election = Election.all
+      render json: election.to_json(only: [ :code ], methods: [ :start_at, :finish_at ])
+    else
+      redirect_to root_path
+    end
   end
 
 
