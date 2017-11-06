@@ -7,7 +7,7 @@
 <% Election.all.each do |election| %>
 <br><div>
   <h4>Election <%=election.code%></h4>
-  <p>Total: <%= Vote.where('votes.election_id == ?', election.id).count %></p>
+  <p>Total: <%= Vote.where('votes.election_id = ?', election.id).count %></p>
 </div>
 <% end %>
 </html>
