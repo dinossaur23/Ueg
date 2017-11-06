@@ -5,3 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+positions = Position.create([{ name: 'Presidente' }, { name: 'Governador' }, { name: 'Prefeito' }, { name: 'Deputado Federal' }, { name: 'Senador' }, { name: 'Deputado Estadual' }, { name: 'Vereador' }])
