@@ -18,10 +18,10 @@ class ApurationsController < ApplicationController
     @json = JSON.parse(response)
 
     @json.first['votes'].each do |vote|
-      voter = Voter.where('voters.cpf == ?', vote['cpf']).to_a.first.id
-      candidate = Candidate.where('candidates.number == ?', vote['number']).to_a.first.id
-      election = Election.where('elections.code == ?', @json.first['election_code']).to_a.first.id
-      validate_vote = Vote.where('votes.voter_id == ? AND votes.candidate_id == ? AND votes.election_id == ? ', voter, candidate, election).present?
+      voter = Voter.where('voters.cpf = ?', vote['cpf']).to_a.first.id
+      candidate = Candidate.where('candidates.number = ?', vote['number']).to_a.first.id
+      election = Election.where('elections.code = ?', @json.first['election_code']).to_a.first.id
+      validate_vote = Vote.where('votes.voter_id = ? AND votes.candidate_id = ? AND votes.election_id = ? ', voter, candidate, election).present?
 
       unless validate_vote
         @new = Vote.create(uev_id: id, timestamp: vote['timestamp'], voter_id: voter, candidate_id: candidate, election_id: election)
