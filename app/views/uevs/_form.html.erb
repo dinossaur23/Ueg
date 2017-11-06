@@ -11,17 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :token %>
-    <%= form.text_field :token, id: :uev_token %>
-  </div>
+  <div class="row">
+    <div class="col s12 m8 l6">
+      <div class="field">
+        <%= form.label :token %>
+        <%= form.text_field :token, id: :uev_token %>
+      </div>
 
-  <div class="field">
-    <%= form.label :uev_server %>
-    <%= form.text_field :uev_server, id: :uev_uev_server %>
-  </div>
+      <div class="field">
+        <%= form.label :uev_server %>
+        <%= form.text_field :uev_server, id: :uev_uev_server %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
+      <br><div class="actions waves-effect waves-light btn-large">
+        <%= form.submit %>
+      </div>
+    </div>
   </div>
 <% end %>

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :votes
+  resources :votes, only: [:index]
   resources :elections
-  resources :positions
   resources :candidates
   resources :voters
   resources :uevs
