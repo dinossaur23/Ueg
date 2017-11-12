@@ -62,7 +62,7 @@ class CandidatesController < ApplicationController
   end
 
   def to_json
-    render json: Candidate.joins(:uev, :election).where('uevs.token = ? AND elections.code = ?', params[:id], params[:election]).to_json(only: [ :name, :nickname, :number, :images ], include: { position: { only: :name }})
+    render json: Candidate.joins(:uev, :election).where('uevs.token = ? AND elections.code = ? AND candidates.number != 0 AND candidates.number != 1', params[:id], params[:election]).to_json(only: [ :name, :nickname, :number, :images ], include: { position: { only: :name }})
   end
 
   private

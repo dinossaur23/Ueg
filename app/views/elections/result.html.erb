@@ -6,8 +6,19 @@
 </span>
 <% Election.all.each do |election| %>
 <br><div>
-  <h4>Election <%=election.code%></h4>
-  <p>Total: <%= Vote.where('votes.election_id = ?', election.id).count %></p>
+  <h4 style="text-align: center">Election <%=election.code%></h4>
+
+  <% Uev.all.each do |uev| %>
+
+    <% Position.all.each do |position| %>
+      <% if Candidate.joins(:votes).group("candidates.name").where("votes.uev_id = ? AND candidates.position_id = ?", uev.id, position.id).count.present? %>
+        <h5><%=position.name%>:</h5>
+        <%= pie_chart Candidate.joins(:votes).group("candidates.name").where("votes.uev_id = ? AND candidates.position_id = ?", uev.id, position.id).count, title: "Uev: #{uev.token}" %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <p>Election result: <%= Vote.where('votes.election_id = ?', election.id).count %></p>
 </div>
 <% end %>
 </html>
