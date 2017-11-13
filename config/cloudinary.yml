@@ -1,0 +1,8 @@
+production:
+  cloud_name: "hkirhkptw"
+  api_key: "354537896653866"
+  api_secret: "rLajYVBE-RKEsqgo8pt24-Gr1Ac"
+development:
+  cloud_name: "hkirhkptw"
+  api_key: "354537896653866"
+  api_secret: "rLajYVBE-RKEsqgo8pt24-Gr1Ac"
