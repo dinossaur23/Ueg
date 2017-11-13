@@ -22,11 +22,13 @@ class ApurationsController < ApplicationController
       if vote['nulo'].present?
         position = Position.where('positions.name = ?', vote['nulo']).to_a.first.id
         candidate = Candidate.where('candidates.position_id = ? AND candidates.number = 0', position).to_a.first.id
-        validate_vote = Vote.where('votes.timestamp = ?', vote['timestamp']).present?
+        datetime = DateTime.parse(vote['timestamp'])
+        validate_vote = Vote.where('votes.timestamp = ? AND votes.candidate_id = ? ', datetime, candidate).present?
       elsif vote['branco'].present?
         position = Position.where('positions.name = ?', vote['branco']).to_a.first.id
         candidate = Candidate.where('candidates.position_id = ? AND candidates.number = 1', position).to_a.first.id
-        validate_vote = Vote.where('votes.timestamp = ?', vote['timestamp']).present?
+        datetime = DateTime.parse(vote['timestamp'])
+        validate_vote = Vote.where('votes.timestamp = ? AND votes.candidate_id = ? ', datetime, candidate).present?
       else
         candidate = Candidate.where('candidates.number = ?', vote['number']).to_a.first.id
         validate_vote = Vote.where('votes.voter_id = ? AND votes.candidate_id = ? AND votes.election_id = ? ', voter, candidate, election).present?

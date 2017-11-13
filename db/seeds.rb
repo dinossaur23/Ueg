@@ -32,7 +32,7 @@ Uev.all.each do |uev|
   Voter.create(name: 'Julia Rodrigues', cpf: '743678192', date_of_birth: '1999-10-25', gender: 'F', uev_id: uev.id, election_id: election.id)
   Voter.create(name: 'Iara Oliveira', cpf: '63791203', date_of_birth: '1983-06-19', gender: 'F', uev_id: uev.id, election_id: election.id)
   Voter.create(name: 'Carolina Domingues', cpf: '8762678434', date_of_birth: '1987-01-05', gender: 'F', uev_id: uev.id, election_id: election.id)
-  Voter.create(name: 'Amanda Souto Pereira', cpf: '64682187x', date_of_birth: '1963-14-28', gender: 'F', uev_id: uev.id, election_id: election.id)
+  Voter.create(name: 'Amanda Souto Pereira', cpf: '646821878', date_of_birth: '1963-05-28', gender: 'F', uev_id: uev.id, election_id: election.id)
   Voter.create(name: 'Roberta Martins', cpf: '23847722', date_of_birth: '1979-08-23', gender: 'F', uev_id: uev.id, election_id: election.id)
   Voter.create(name: 'Fernanda Alves', cpf: '48829133', date_of_birth: '1993-09-29', gender: 'F', uev_id: uev.id, election_id: election.id)
   Voter.create(name: 'Juliana Pereira', cpf: '84892932', date_of_birth: '1996-12-27', gender: 'F', uev_id: uev.id, election_id: election.id)
