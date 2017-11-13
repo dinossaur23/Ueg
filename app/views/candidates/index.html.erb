@@ -2,7 +2,7 @@
 
 <div class="row center-cols">
 <% @candidates.each do |candidate| %>
-
+  <% if candidate.number != 0 && candidate.number != 1 %>
     <div class="col m4">
       <div class="card">
         <div class="card-image">
@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-
+  <% end %>
 <% end %>
 </div>
 
