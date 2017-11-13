@@ -69,6 +69,6 @@ class UevsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def uev_params
-      params.require(:uev).permit(:token)
+      params.require(:uev).permit(:token, :uev_server)
     end
 end
