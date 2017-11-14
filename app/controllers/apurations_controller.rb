@@ -1,6 +1,8 @@
 require 'open-uri'
 
 class ApurationsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
   end
 
@@ -9,12 +11,10 @@ class ApurationsController < ApplicationController
     created = 0
     not_created = 0
     uev = Uev.where('uevs.token = ?', params[:id]).to_a
-    server = uev.first.uev_server
     id = uev.first.id
-    open(server) do |http|
-      response = http.read
-    end
-    @json = JSON.parse(response)
+
+    information = request.raw_post
+    @json = JSON.parse(information)
 
     @json.first['votes'].each do |vote|
       voter = Voter.where('voters.cpf = ?', vote['cpf']).to_a.first.id

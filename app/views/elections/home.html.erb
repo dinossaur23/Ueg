@@ -61,7 +61,7 @@
             <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
             <h5 class="center">How work with Ueg</h5>
 
-            <p class="light">For Ueg to be able to count the votes of the election when it finished, is necessary to have registered the server of each Uev and this server must be working, otherwise, nothing will be counted. It is also necessary for Json of Uev follow the pattern described below.</p>
+            <p class="light">For Ueg to be able to count the votes of the election when it finished, is necessary to post a json with "Content-Type" header of your request setting to "application/json", otherwise, nothing will be counted. It is also necessary for Json of Uev follow the pattern described below.</p>
           </div>
         </div>
       </div>
@@ -143,7 +143,7 @@
         <div class="col s12 m6">
           <div class="left-align light">
             <h5>In Uev system</h5>
-            <p>Get votes</p>
+            <p>Post votes</p>
             <pre style="background-color: rgba(27,31,35,0.05);"><code>[
   "ueg_code": "974638",
   "election_code": "2017",

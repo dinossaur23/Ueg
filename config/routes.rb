@@ -12,8 +12,7 @@ Rails.application.routes.draw do
     get ':id/:election/candidates', to: 'candidates#to_json'
     get ':id/:election/voters', to: 'voters#to_json'
     get ':id/elections', to: 'elections#to_json'
-    get ':id/apurations', to: 'apurations#index'
-    get ':id/apurations/count', to: 'apurations#count'
+    post ':id/votes', to: 'apurations#count'
   end
 
   root to: 'elections#home'
