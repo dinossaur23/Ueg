@@ -10,11 +10,16 @@ class ApurationsController < ApplicationController
     response = ''
     created = 0
     not_created = 0
-    uev = Uev.where('uevs.token = ?', params[:id]).to_a
-    id = uev.first.id
+    uev_params = Uev.where('uevs.token = ?', params[:id]).to_a
+
+    return head :bad_request if uev_params.empty?
 
     information = request.raw_post
     @json = JSON.parse(information)
+
+    find_uev = Uev.where('uevs.token = ?', @json.first['uev_code']).to_a
+    return head :bad_request if find_uev.empty? && find_uev != uev_params
+    id = find_uev.first.id
 
     find_election = Election.where('elections.code = ?', @json.first['election_code']).to_a
     return head :bad_request if find_election.empty?
